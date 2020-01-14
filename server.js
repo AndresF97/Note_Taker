@@ -7,15 +7,14 @@ const  PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(express.static("public"))
-let note = []
+let note;
 app.post("/api/notes",function(req,res){
     var newNotes = req.body;
     console.log(newNotes)
-    fs.readFile("./db/db.json","utf8",(err,data)=>{
+    fs.readFile("./db/db.json",(err,data)=>{
         if(err) throw err
-        
-        note.push(JSON.parse(data));
-        note.push(newNotes);
+        note = JSON.parse(data);
+        note.push(newNotes)
         note.forEach((item,i) => {
             item.id = 1 + i
         })
@@ -30,19 +29,26 @@ app.post("/api/notes",function(req,res){
 app.get("/api/notes",function(req,res){
     fs.readFile("./db/db.json",function(err,data){
         if(err) throw err
-        noter = (JSON.parse(data))
         return  res.json(JSON.parse(data))
     })
 })
-app.get("/api/notes/:id",function(req,res){
+app.delete("/api/notes/:id",function(req,res){
     var chosen = req.params.id;
-        console.log(chosen)
-        for(var i = 0 ; i < note.length;i++){
-        if(chosen === note[i].id){
-            return res.json(note[i])
+        fs.readFile("./db/db.json",(err,data)=>{
+            if(err) throw err
+        var dat = JSON.parse(data)
+        for(var i = 0 ; i < dat.length;i++){
+         if(chosen === dat[i].id){
+            dat = dat.splice(0,i)+dat.slice(i+1,-1)
+            console.log(dat)
+             }
+            fs.writeFile("./db/db.json",JSON.stringify(dat),(err)=>{
+                if(err) throw err
+                
+            })
         }
-    }
-        return res.json(false)
+    })
+        
 })
 app.get('/note',function(req,res){
     res.sendFile(path.join(__dirname,"public/notes.html"))
