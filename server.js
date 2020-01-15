@@ -10,7 +10,6 @@ app.use(express.static("public"))
 let note;
 app.post("/api/notes",function(req,res){
     var newNotes = req.body;
-    console.log(newNotes)
     fs.readFile("./db/db.json",(err,data)=>{
         if(err) throw err
         note = JSON.parse(data);
@@ -51,22 +50,6 @@ app.delete("/api/notes/:id",function(req,res){
     res.send("file")
         
 })
-// app.delete("/api/notes/:id",function(req,res){
-//     var chosen = req.params.id;
-//         fs.readFile("./db/db.json",(err,data)=>{
-//             if(err) throw err
-//             var dat = JSON.parse(data)
-//             dat.forEach((d, i)=>{
-//               if (d.id.toString() === chosen) {
-//                 dat.splice(i, 1)
-//               }
-//             })
-//             fs.writeFile("./db/db.json",JSON.stringify(dat),(err=>{
-//                 if(err) throw err
-//             }))
-//           res.send('yeet')
-//     })
-
 app.get('/note',function(req,res){
     res.sendFile(path.join(__dirname,"public/notes.html"))
 })
