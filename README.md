@@ -72,5 +72,5 @@ app.delete("/api/notes/:id",function(req,res){
 ```
 - This code will manipulates the content of the website and how it willbe displayed.
 ## Author Contact
-[LinkedIn](linkedin.com/in/andres-felipe-jimenez-ferreira-b67a35192)
-[GitHub](https://github.com/AndresF97)
+- [LinkedIn](linkedin.com/in/andres-felipe-jimenez-ferreira-b67a35192)
+- [GitHub](https://github.com/AndresF97)
