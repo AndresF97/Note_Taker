@@ -2,9 +2,8 @@
 Take notes with in a website.
 - This app will allow you to add notes straight from the website and to a server that will push the information to json file called db. 
 ## Site Picture
-![ Notes Page_home](https://media-exp2.licdn.com/dms/image/C4D22AQGpKHUAjVocYg/feedshare-shrink_800/0?e=1582156800&v=beta&t=1HPKsOWVj5UkPzcq3soFZhh4g2BFP4tvVZWkritVSRE)
-![ Notes Page_notes](https://media-exp2.licdn.com/dms/image/C4D22AQFqMXDTCZECwA/feedshare-shrink_800/0?e=1582156800&v=beta&t=nsjOquZZwWI7eIdVMigInTmVfm5f6r-Ay0AFOS03PjM)
-![ Notes Page_saved_note](https://media-exp2.licdn.com/dms/image/C4D22AQGuiJAvqgqrkw/feedshare-shrink_800/0?e=1582156800&v=beta&t=8TlvlKxE-Q5jslQGkgCbThl3PhBQdcsdg_HAAOdQSTk)
+![ Notes Page_home](./public/assets/img/NotesHome.gif)
+![ Notes Page_saved_note](./public/assets/img/NotesHome.gif)
 
 
 ## Technologies Used
@@ -15,6 +14,7 @@ Take notes with in a website.
 - Git - version control system to track changes to source code
 - GitHub - hosts repository that can be deployed to GitHub Pages
 - Express - An npm extension to set up a local host and manipulate the information.
+- JSON - to create a mock Database tp save user information.
 
 ## Summary 
 - This App will allow you to take notes.
